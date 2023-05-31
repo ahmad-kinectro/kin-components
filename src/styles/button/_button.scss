@@ -1,5 +1,4 @@
 $kui-button-font-size: 16 !default;
-$kui-button-font-size-rem: rem($kui-button-font-size) !default;
 $kui-button-icon-margin: 16 !default;
 $kui-button-floating-offset-x: 1.5rem !default;
 $kui-button-floating-offset-y: 1.5rem !default;
@@ -11,7 +10,7 @@ $kui-button-border-color: $kui-color-black !default;
 $kui-button-border-color-hover: $kui-color-gray50 !default;
 $kui-button-background: $kui-color-black !default;
 $kui-button-background-hover: $kui-color-gray30 !default;
-$kui-button-padding: em(16, $kui-button-font-size) 0 em(16, $kui-button-font-size) 0 !default;
+$kui-button-padding: 16px 0 16px 0 !default;
 $kui-button-stretch-max: 767px !default;
 
 $roundes: ("sm": 8px,"md":12px,"lg":16px, "xl": 20px, "xxl": 24px, "full": 100px);
@@ -50,7 +49,7 @@ $font-weights: (
     padding: $kui-button-padding;
     outline: 0;
     font-family: inherit;
-    font-size: $kui-button-font-size-rem;
+    font-size: $kui-button-font-size;
     font-weight: $kui-font-weight-normal;
     //line-height: unit(4.8);
     line-height: unit(6);
@@ -59,7 +58,7 @@ $font-weights: (
     white-space: normal;
     vertical-align: middle;
     transition: all 250ms $kui-easing;
-    @include kui-remove-tap-highlight;
+    // @include kui-remove-tap-highlight;
   }
 
   &,
@@ -168,23 +167,23 @@ $font-weights: (
   }
 
   &--text {
-    .kui-button__text::after {
-      content: '';
-      display: inline-block;
-      position: relative;
-      top: em(1, $kui-button-font-size);
-      margin-left: em(4, $kui-button-font-size);
-      width: 0.5em;
-      height: 0.8125em;
-      background: center no-repeat url('data:image/svg+xml,#{kui-svg-arrow($kui-button-color)}');
-      background-size: contain;
-      transition: transform 0.2s ease;
-    }
+    // .kui-button__text::after {
+    //   content: '';
+    //   display: inline-block;
+    //   position: relative;
+    //   top: em(1, $kui-button-font-size);
+    //   margin-left: em(4, $kui-button-font-size);
+    //   width: 0.5em;
+    //   height: 0.8125em;
+    //   background: center no-repeat url('data:image/svg+xml,#{kui-svg-arrow($kui-button-color)}');
+    //   background-size: contain;
+    //   transition: transform 0.2s ease;
+    // }
 
-    &:hover .kui-button__text::after {
-      background-image: url('data:image/svg+xml,#{kui-svg-arrow($kui-button-color-hover)}');
-      transform: translateX(5px);
-    }
+    // &:hover .kui-button__text::after {
+    //   background-image: url('data:image/svg+xml,#{kui-svg-arrow($kui-button-color-hover)}');
+    //   transform: translateX(5px);
+    // }
 
     &:disabled {
       .kui-button__text {
@@ -300,7 +299,7 @@ $font-weights: (
 
   // Child elements
   &__text-icon {
-    $_margin: em($kui-button-icon-margin, $kui-button-font-size);
+    $_margin: $kui-button-icon-margin;
     display: inline-flex;
     align-items: center;
     position: relative;

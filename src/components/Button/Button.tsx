@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-
+import "../../styles/index.scss";
 type ButtonType = "button" | "submit" | "reset";
 type ButtonVariants =
   | "primary"

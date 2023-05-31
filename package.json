@@ -1,6 +1,6 @@
 {
-  "name": "kin-components",
-  "version": "1.0.0",
+  "name": "@ahmad-kinectro/kin-components",
+  "version": "0.0.2",
   "description": "A dumb components library of Kinectro software technology",
   "scripts": {
     "rollup": "rollup --config rollup.config.js --bundleConfigAsCjs",
@@ -46,6 +46,7 @@
     "rollup": "^3.23.0",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-sass": "^1.12.19",
     "sass": "^1.62.1",
     "storybook": "^7.0.17",
     "tslib": "^2.5.2",
@@ -56,5 +57,8 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/ahmad-kinectro"
+  }
 }
