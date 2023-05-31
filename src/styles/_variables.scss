@@ -1,0 +1,157 @@
+$kui-rem-base: 16px !default; // in px
+$kui-base-unit: 4px !default; // in px
+@import "utils";
+
+$kui-layout-min-width: 288px !default; // = smallest grid width on 320px viewport.
+
+$kui-pi: 3.14159;
+
+/**
+ * Modular Scale
+ */
+//$kui-modular-scale: ( default: ( base: 16px, ratio: 1.14, ), small: ( ratio: 1.17, ), large: ( base: 18px, ratio: 1.21, ), huge: ( base: 20px, ratio: 1.25, ), ) !default;
+$kui-modular-scale: ( default: ( base: 16px, ratio: 1.14, ), small: ( base: 16px, ratio: 1.17, ), large: ( base: 18px, ratio: 1.21, ), huge: ( base: 20px, ratio: 1.25, ), ) !default;
+
+/**
+ * Animation & Transitions
+ */
+$kui-easing: cubic-bezier(0.75, 0.02, 0.5, 1) !default;
+
+/**
+ * Colors
+ */
+$kui-color-red: #bb0a30 !default;
+$kui-color-progressive-red: #f50537 !default;
+$kui-color-signal-red: #eb0d3f !default;
+$kui-color-yellow: #ffaa00 !default;
+$kui-color-green: #009900 !default;
+$kui-color-charging-neon-blue: #556EFE !default;
+$kui-color-charging-blue: #2526fe !default;
+$kui-color-charging-neon-green: #15da15 !default;
+$kui-color-charging-green: #0da20d !default;
+$kui-color-silver: #b2b2b2 !default;
+$kui-color-warmsilver: #b6b1a9 !default;
+$kui-color-black: #000000 !default;
+$kui-color-gray10: #1a1a1a !default;
+$kui-color-gray20: #333333 !default;
+$kui-color-gray30: #4c4c4c !default;
+$kui-color-gray40: #666666 !default;
+$kui-color-gray50: #808080 !default;
+$kui-color-gray60: #999999 !default;
+$kui-color-gray70: #b3b3b3 !default;
+$kui-color-gray80: #cccccc !default;
+$kui-color-gray85: #d9d9d9 !default;
+$kui-color-gray90: #e5e5e5 !default;
+$kui-color-gray95: #f2f2f2 !default;
+$kui-color-white: #ffffff !default;
+
+$kui-color-light: $kui-color-gray95 !default;
+$kui-color-dark: $kui-color-gray20 !default;
+$kui-color-body: $kui-color-dark !default;
+$kui-color-placeholder: $kui-color-gray60 !default;
+$kui-color-invalid: $kui-color-signal-red !default;
+
+/**
+ * Font
+ */
+$kui-font-default: #{"\'AudiTypeVariable\'", Verdana, Geneva, sans-serif} !default;
+$kui-font-wide: #{"\'AudiTypeWide\'", Verdana, Geneva, sans-serif} !default;
+//$kui-font-extended: #{"\'AudiTypeExtended\'", Verdana, Geneva, sans-serif} !default;
+$kui-font-extended: #{"\'AudiTypeVariable\'", Verdana, Geneva, sans-serif} !default;
+$kui-font-extended-width: "wdth" 130;
+$kui-font-weight-light: 300 !default;
+$kui-font-weight-normal: 400 !default;
+$kui-font-weight-bold: 700 !default;
+
+// To smooth circles in Chrome on subpixel, we define an scaling factor:
+$kui-circle-smoothing-factor: 2 !default;
+
+/**
+ * Icons
+ */
+$kui-icon-size-small: 24px !default;
+$kui-icon-size-large: 48px !default;
+$kui-icon-system-size-small: 23px !default;
+$kui-icon-system-size-large: 45px !default;
+$kui-icon-stroke-width: 1.1px !default;
+
+/**
+ * SVG
+ */
+$kui-svg-arrow-width: 8px !default;
+$kui-svg-arrow-height: 13px !default;
+
+/**
+ * Breakpoints
+ */
+//$kui-breakpoint: ( tiny : 480px, xsmall : 600px, small : 740px, medium : 960px, large : 1264px, xlarge : 1424px, huge : 1584px, ) !default;
+$kui-breakpoint: ( xsmall : 0px, small : 375px, medium : 768px, large : 1024px, xlarge : 1440px, huge : 1920px, ) !default;
+
+
+// $kui-shadow: 0 10px 50px $kui-color-gray85;
+
+/**
+ * Card Component
+ */
+$kui-card-spacing: unit(1) !default;
+
+/**
+ * Form Field Components, like Textfield
+ */
+// $kui-field-floating-label-padding: unit(4);
+$kui-field-floating-label-padding: 0.6875rem !default;
+$kui-field-floating-label-font-size: .75rem !default;
+$kui-field-default-height: unit(10.8) !default;
+$kui-field-line-height: 1.5 !default;
+$kui-field-error-line-height: unit(5) !default;
+$kui-field-error-color: $kui-color-invalid !default;
+$kui-field-disabled-opacity: 0.3 !default;
+$kui-field-placeholder-color: $kui-color-gray20 !default;
+$kui-field-placeholder-color-light: rgba(#fff, 0.6) !default;
+$kui-field-transition-duration: 0.25s !default;
+$kui-field-label-y: 0.5rem !default;
+$kui-field-focus-line-height: 1px !default;
+
+/**
+ * Grid Component
+ */
+$kui-grid-columns: 12 !default;
+$kui-grid-gutters: unit(1) !default;
+$kui-grid-container-offset: 4.375% !default; // in percent
+
+/**
+ * Visibility Component
+ */
+$kui-visibility: ( tiny, xsmall, small, medium, large, xlarge, huge, );
+
+/**
+ * z-index
+ */
+$kui-zindex-header: 100 !default;
+$kui-dropdown-open-index: 1000 !default;
+$kui-alert-zindex: 1700 !default;
+$kui-notification-zindex: 1701 !default;
+$kui-button-floating-zindex: 900 !default;
+$kui-zindex-modal-backdrop: 1800 !default;
+$kui-zindex-modal-morph: 1801 !default;
+$kui-zindex-modal: 1900 !default;
+$kui-zindex-dropdown: 1000 !default;
+$kui-zindex-nav-dropdown-toggle: 1001 !default;
+$kui-zindex-tooltip: 1002 !default;
+$kui-zindex-popover: 1002 !default;
+$kui-zindex-dropdown: 1002 !default;
+$kui-zindex-nav-sticky: 1001 !default;
+
+%kui-hidden-input {
+  appearance: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  opacity: 0;
+  z-index: -1;
+}

@@ -1,0 +1,348 @@
+$kui-button-font-size: 16 !default;
+$kui-button-font-size-rem: rem($kui-button-font-size) !default;
+$kui-button-icon-margin: 16 !default;
+$kui-button-floating-offset-x: 1.5rem !default;
+$kui-button-floating-offset-y: 1.5rem !default;
+$kui-button-color: $kui-color-black !default;
+$kui-button-color-hover: $kui-color-gray30 !default;
+$kui-button-color-disabled: $kui-color-gray70 !default;
+$kui-button-color-primary: $kui-color-white !default;
+$kui-button-border-color: $kui-color-black !default;
+$kui-button-border-color-hover: $kui-color-gray50 !default;
+$kui-button-background: $kui-color-black !default;
+$kui-button-background-hover: $kui-color-gray30 !default;
+$kui-button-padding: em(16, $kui-button-font-size) 0 em(16, $kui-button-font-size) 0 !default;
+$kui-button-stretch-max: 767px !default;
+
+$roundes: ("sm": 8px,"md":12px,"lg":16px, "xl": 20px, "xxl": 24px, "full": 100px);
+$button-sizes: ("small": 8px,"medium":12px,"large":16px);
+$button-sizes: ("small": 8px,"medium":12px,"large":16px);
+$font-weights: (
+  "normal": 400,
+   "bold": 700,
+  "lighter": inherit,
+   "bolder": 900,
+   "100":100,
+   "200": 200,
+  "300":300,
+   "400":400,
+   "500":500,
+   "600":600,
+   "700":700,
+   "800":800,
+   "900":900);
+
+.kui-button {
+  &.is-active,
+  &:active,
+  &:hover,
+  &:visited {
+    color: $kui-button-color-hover;
+    stroke: $kui-button-color-hover;
+    fill: $kui-button-color-hover;
+  };
+
+  & {
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding: $kui-button-padding;
+    outline: 0;
+    font-family: inherit;
+    font-size: $kui-button-font-size-rem;
+    font-weight: $kui-font-weight-normal;
+    //line-height: unit(4.8);
+    line-height: unit(6);
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    vertical-align: middle;
+    transition: all 250ms $kui-easing;
+    @include kui-remove-tap-highlight;
+  }
+
+  &,
+  &.is-disabled,
+  &:disabled {
+    color: $kui-button-color;
+    stroke: $kui-button-color;
+    fill: $kui-button-color;
+    border: 1px solid transparent;
+    background: transparent;
+  }
+
+  &.is-disabled,
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &--bold {
+    font-weight: $kui-font-weight-bold;
+  }
+
+  &--padded,
+  &--primary,
+  &--secondary {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &--icon,
+  &--primary,
+  &--secondary {
+    &:focus {
+    //  @include shadow-focus; // adjusted to react library
+    }
+
+    &.is-disabled,
+    &:disabled,
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &--round {
+    &.is-disabled,
+    &:disabled {
+      color: $kui-button-color-disabled;
+      stroke: $kui-button-color-disabled;
+      fill: $kui-button-color-disabled;
+    }
+  }
+
+  &--floating,
+  &--primary {
+    &.is-active,
+    &:active,
+    &:hover {
+      border-color: $kui-button-background-hover;
+      background-color: $kui-button-background-hover;
+    }
+
+    &,
+    &.is-active,
+    &:active,
+    &:hover,
+    &:visited {
+      color: $kui-button-color-primary;
+      stroke: $kui-button-color-primary;
+      fill: $kui-button-color-primary;
+    }
+
+    &.is-disabled,
+    &:disabled {
+      color: $kui-color-white;
+      stroke: $kui-color-white;
+      fill: $kui-color-white;
+      border-color: $kui-button-color-disabled !important;
+      background-color: $kui-button-color-disabled !important;
+    }
+
+    &,
+    &.is-disabled,
+    &:disabled {
+      border-color: $kui-button-background;
+      background-color: $kui-button-background;
+    }
+  }
+
+  &--secondary {
+    &.is-active,
+    &:active,
+    &:hover {
+      border-color: $kui-button-border-color-hover;
+    };
+
+    &,
+    &.is-disabled,
+    &:disabled {
+      border-color: $kui-button-border-color;
+    }
+
+    &.is-disabled,
+    &:disabled {
+      color: $kui-button-color-disabled !important;
+      border-color: $kui-button-color-disabled !important;
+    }
+  }
+
+  &--text {
+    .kui-button__text::after {
+      content: '';
+      display: inline-block;
+      position: relative;
+      top: em(1, $kui-button-font-size);
+      margin-left: em(4, $kui-button-font-size);
+      width: 0.5em;
+      height: 0.8125em;
+      background: center no-repeat url('data:image/svg+xml,#{kui-svg-arrow($kui-button-color)}');
+      background-size: contain;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover .kui-button__text::after {
+      background-image: url('data:image/svg+xml,#{kui-svg-arrow($kui-button-color-hover)}');
+      transform: translateX(5px);
+    }
+
+    &:disabled {
+      .kui-button__text {
+        color: $kui-button-color-disabled;
+      }
+    }
+
+    &.is-disabled .kui-button__text::after,
+    &:disabled .kui-button__text::after {
+      transform: none;
+      background-image: url('data:image/svg+xml,#{kui-svg-arrow($kui-button-color-disabled)}');
+    }
+  }
+
+  &--icon {
+    // System icon size without white space
+    width: 23px;
+    height: 23px;
+    padding: 0;
+    border: none;
+
+    .audiicon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: $kui-icon-size-small;
+      height: $kui-icon-size-small;
+    }
+  }
+
+  &--icon--large {
+    // Large system icon size without white space
+    width: 45px;
+    height: 45px;
+
+    .audiicon {
+      top: -1px;
+      left: -1px;
+      width: $kui-icon-size-large;
+      height: $kui-icon-size-large;
+
+      &-container--small {
+        display: none;
+      }
+
+      &-container--large {
+        display: inline;
+      }
+    }
+  }
+
+  &--round {
+    border-radius: 50%;
+  }
+
+  &--stretched {
+    width: 100%;
+    max-width: $kui-button-stretch-max;
+  }
+
+  &--sticky {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    @include shadow;
+  }
+
+  &--centered {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &--floating {
+    position: fixed;
+    right: $kui-button-floating-offset-x;
+    bottom: $kui-button-floating-offset-y;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    z-index: $kui-button-floating-zindex;
+    @include shadow;
+
+    .audiicon {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: $kui-icon-size-large;
+      height: $kui-icon-size-large;
+
+      &-container--small {
+        display: none;
+      }
+
+      &-container--large {
+        display: inline;
+      }
+    }
+
+    &,
+    &:focus,
+    &:hover {
+      @include shadow;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    // vertical-align: middle; REVIEW Increases button height by 1px; check if necessary
+  }
+
+  // Child elements
+  &__text-icon {
+    $_margin: em($kui-button-icon-margin, $kui-button-font-size);
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+
+    .audiicon {
+      display: inline-block;
+    }
+
+    .kui-button__text:first-child {
+      margin-right: $_margin;
+    }
+
+    .kui-button__text:not(:first-child) {
+      margin-left: $_margin;
+    }
+  }
+
+  // Firefox Button Height Fix
+  // @see https://davidwalsh.name/firefox-buttons
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  @each $name, $value in $button-sizes{
+    &--size-#{$name}{
+      padding: $value;
+    }
+  }
+
+  @each $name, $value in $font-weights{
+    &--font-weight-#{$name}{
+      font-weight: $value;
+    }
+  }
+
+    @each $name, $value in $roundes{
+    &--rouned-#{$name}{
+      border-radius: $value;
+    }
+  }
+
+}
